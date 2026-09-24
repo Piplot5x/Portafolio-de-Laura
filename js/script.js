@@ -12,6 +12,8 @@ fetch("../../components/footer.html")
         document.querySelector("#footer").innerHTML = data;
     });
 
+/* BOTÓN VOLVER */
+
 const projectBack = document.getElementById("project-back");
 
 if (projectBack) {
@@ -27,12 +29,55 @@ if (projectBack) {
     const backButton = projectBack.querySelector(".project-back-button");
 
     backButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.location.href = "../../pages/animation.html";
-});
+        event.preventDefault();
+
+        const previousPage = sessionStorage.getItem("projectPreviousPage");
+
+        if (previousPage) {
+            window.location.href = previousPage;
+        } else {
+            window.location.href = "../../pages/areas.html";
+        }
+    });
 }
 
 
+/* GUARDAR LA PÁGINA ANTERIOR AL ENTRAR A UN PROYECTO */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("a");
+
+        if (!link || link.classList.contains("project-back-button")) return;
+
+        const url = link.href;
+
+        if (
+            !url ||
+            url.startsWith("#") ||
+            link.target === "_blank" ||
+            link.hasAttribute("download") ||
+            url.startsWith("mailto:")
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        const main = document.querySelector("main");
+
+        if (main) {
+            main.classList.add("page-transition");
+        }
+
+        sessionStorage.setItem("projectPreviousPage", window.location.href);
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 100);
+    });
+});
 
 const backToTop = document.getElementById("back-to-top");
 
