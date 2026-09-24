@@ -68,6 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     });
 });
+window.addEventListener("pageshow", () => {
+    const main = document.querySelector("main");
+
+    if (main) {
+        main.classList.remove("page-transition");
+        main.style.opacity = "1";
+    }
+});
+
 
 const backToTop = document.getElementById("back-to-top");
 
