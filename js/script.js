@@ -28,13 +28,6 @@ if (projectBack) {
 
     backButton.addEventListener("click", (event) => {
     event.preventDefault();
-
-    const main = document.querySelector("main");
-
-    if (main) {
-        main.classList.remove("page-transition");
-    }
-
     history.back();
 });
 }
@@ -67,15 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = url;
         }, 100);
     });
-});
-window.addEventListener("pageshow", () => {
-    const main = document.querySelector("main");
-
-    if (main) {
-        main.classList.remove("page-transition");
-        main.style.animation = "none";
-        main.style.opacity = "1";
-    }
 });
 
 
