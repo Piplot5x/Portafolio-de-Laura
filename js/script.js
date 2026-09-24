@@ -27,9 +27,16 @@ if (projectBack) {
     const backButton = projectBack.querySelector(".project-back-button");
 
     backButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        history.back();
-    });
+    event.preventDefault();
+
+    const main = document.querySelector("main");
+
+    if (main) {
+        main.classList.remove("page-transition");
+    }
+
+    history.back();
+});
 }
 
 document.addEventListener("DOMContentLoaded", () => {
