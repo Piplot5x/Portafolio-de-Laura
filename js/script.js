@@ -65,17 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         event.preventDefault();
 
-        const main = document.querySelector("main");
-
-        if (main) {
-            main.classList.add("page-transition");
-        }
-
         sessionStorage.setItem("projectPreviousPage", window.location.href);
 
-        setTimeout(() => {
-            window.location.href = url;
-        }, 100);
+        window.location.href = url;
     });
 });
 
