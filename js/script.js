@@ -73,6 +73,7 @@ window.addEventListener("pageshow", () => {
 
     if (main) {
         main.classList.remove("page-transition");
+        main.style.animation = "none";
         main.style.opacity = "1";
     }
 });
