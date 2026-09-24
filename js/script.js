@@ -28,7 +28,7 @@ if (projectBack) {
 
     backButton.addEventListener("click", (event) => {
     event.preventDefault();
-    history.back();
+    window.location.href = "../../pages/animation.html";
 });
 }
 
