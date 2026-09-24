@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (event) => {
         const link = event.target.closest("a");
 
-        if (!link) return;
+        if (!link || link.classList.contains("project-back-button")) return;
 
         const url = link.href;
 
