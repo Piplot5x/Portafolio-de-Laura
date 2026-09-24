@@ -32,35 +32,6 @@ if (projectBack) {
 });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    document.addEventListener("click", (event) => {
-        const link = event.target.closest("a");
-
-        if (!link || link.classList.contains("project-back-button")) return;
-
-        const url = link.href;
-
-        if (
-            !url ||
-            url.startsWith("#") ||
-            link.target === "_blank" ||
-            link.hasAttribute("download") ||
-            url.startsWith("mailto:")
-        ) {
-            return;
-        }
-
-        event.preventDefault();
-
-        const main = document.querySelector("main");
-        main.classList.add("page-transition");
-
-        setTimeout(() => {
-            window.location.href = url;
-        }, 100);
-    });
-});
 
 
 const backToTop = document.getElementById("back-to-top");
