@@ -112,38 +112,35 @@ filterButtons.forEach(button => {
         // Todas desaparecen
         projectCards.forEach(card => {
             card.style.opacity = "0";
+            card.style.pointerEvents = "none";
         });
 
-        // Después de desaparecer, mostramos solo las correspondientes
+        // Después de la transición, ocultamos las que no corresponden
         setTimeout(() => {
             projectCards.forEach(card => {
-                const categories = card.dataset.category;
+                const cardCategory = card.dataset.category;
                 const shouldShow =
-                    category === "Todos" || categories.includes(category);
+                    category === "Todos" || cardCategory.includes(category);
 
                 if (shouldShow) {
-                    card.style.display = "";
+                    card.style.display = "block";
                 } else {
                     card.style.display = "none";
                 }
             });
 
-            // Esperamos un frame para que el navegador aplique el nuevo layout
+            // Mostramos las correspondientes
             requestAnimationFrame(() => {
                 projectCards.forEach(card => {
-                    const categories = card.dataset.category;
-                    const shouldShow =
-                        category === "Todos" || categories.includes(category);
-
-                    if (shouldShow) {
+                    if (card.style.display !== "none") {
                         card.style.opacity = "1";
+                        card.style.pointerEvents = "auto";
                     }
                 });
             });
         }, 500);
     });
 });
-
 /* LIGHBOX PARA IMG */
 const images = document.querySelectorAll(".project-gallery-image, .avisa-anim-image");
 const lightbox = document.getElementById("image-lightbox");
@@ -239,4 +236,3 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-/* FORMULARIO DE CONTACTO */
