@@ -175,3 +175,36 @@ document.addEventListener("keydown", (event) => {
         showImage(currentImage);
     }
 });
+
+/* FORMULARIO DE CONTACTO */
+
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            if (response.ok) {
+                contactForm.reset();
+                formStatus.textContent = "¡Mensaje enviado! Gracias por escribirme.";
+            } else {
+                formStatus.textContent = "No se pudo enviar el mensaje. Inténtalo nuevamente.";
+            }
+
+        } catch (error) {
+            formStatus.textContent = "No se pudo enviar el mensaje. Inténtalo nuevamente.";
+        }
+    });
+}
