@@ -8,6 +8,8 @@
     name="description"
     content="Portafolio de Laura Armas: ilustradora, animadora y diseñadora gráfica.">
 
+    <title>Laura Armas | Portafolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap" rel="stylesheet">
@@ -165,7 +167,7 @@
                                 al usuario sobre los peligros que amenazan a gran parte de las mujeres peruanas.
                                 </p>
 
-                                <a href="pages/animation.html" class="panel-button">
+                                <a href="pages/animation/avisa-cuando-llegues.html" class="panel-button">
                                     <svg class="panel-button-shape"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 179.48 76.26"
@@ -303,19 +305,19 @@
 
         <!-- Forms -->
             <div class="contact-forms">
-                <form id="contact-form" action="https://formspree.io/f/mzezvyyb" method="POST">
+                <form id="contact-form">
                 
                 <!-- Nombre y Apellido -->
                     <div class="row"> 
                         <div class="col-md-6 mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" 
-                            name="nombre" placeholder="Tu nombre" required>
+                            name="nombre" placeholder="Tu nombre" required data-fs-field>
                         </div>
                         <div class="col-md-6 mb-3"> 
                             <label for="apellido" class="form-label">Apellido</label>
                             <input type="text" class="form-control" id="apellido" 
-                            name="apellido" placeholder="Tu apellido" required> 
+                            name="apellido" placeholder="Tu apellido" required data-fs-field> 
                         </div>
                     </div>
 
@@ -323,28 +325,29 @@
                     <div class="mb-3"> 
                         <label for="email" class="form-label">Correo</label>
                         <input type="email" class="form-control" id="email" 
-                        name="email" placeholder="tu@correo.com" required>
+                        name="email" placeholder="tu@correo.com" required data-fs-field>
                     </div>
 
                 <!-- Asunto -->
                     <div class="mb-3">
                         <label for="asunto" class="form-label">Asunto</label>
                         <input type="text" class="form-control" id="asunto" 
-                        name="asunto" placeholder="Motivo del mensaje" required>
+                        name="asunto" placeholder="Motivo del mensaje" required data-fs-field>
                     </div>
 
                 <!-- Mensaje -->
                     <div class="mb-3"> 
                         <label for="mensaje" class="form-label">Mensaje</label>
                         <textarea class="form-control" id="mensaje" 
-                        name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+                        name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required data-fs-field></textarea>
                     </div>
 
                 <!-- Botón -->
-                    <button type="submit" class="btn btn-primary"> Enviar </button>
+                    <button type="submit" class="btn btn-primary" data-fs-submit-btn> Enviar </button>
                 
                 <!-- Mensaje de estado -->
-                    <p id="form-status"></p>
+                    <p id="form-status" data-fs-success>¡Mensaje enviado!</p>
+                    <div data-fs-error></div>
 
                 </form>
             </div>
@@ -360,6 +363,23 @@
             </p><a href="mailto:lau5armas@gmail.com">lau5armas@gmail.com</a></p>
         </div>
     </footer>
+
+<script>
+    window.formspree =
+        window.formspree ||
+        function () {
+            (formspree.q = formspree.q || []).push(arguments);
+        };
+
+    formspree('initForm', {
+        formElement: '#contact-form',
+        formId: 'mzezvyyb'
+    });
+</script>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>

@@ -652,7 +652,6 @@ strong {
     background-color: #ffffff;
     border-radius: 20px;
 }
-
 .filter-button {
     position: relative;
     border: none;
@@ -664,7 +663,6 @@ strong {
     font-weight: 500;
     cursor: pointer;
 }
-
 .filter-button.active::after {
     content: "";
     position: absolute;
@@ -676,6 +674,7 @@ strong {
     height: 3px;
     background-color: #F27E49;
 }
+
 
 .projects {
     padding: 40px clamp(20px, 4%, 60px);
@@ -699,6 +698,7 @@ strong {
     overflow: hidden;
     display: block;
     text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 .project-card img {
     width: 100%;

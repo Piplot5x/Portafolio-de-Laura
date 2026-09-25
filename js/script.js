@@ -12,6 +12,7 @@ fetch("../../components/footer.html")
         document.querySelector("#footer").innerHTML = data;
     });
 
+/* IR ATRÁS */
 const projectBack = document.getElementById("project-back");
 
 if (projectBack) {
@@ -61,7 +62,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     });
 });
+window.addEventListener("pageshow", (event) => {
+    const main = document.querySelector("main");
 
+    if (main && event.persisted) {
+        main.style.transition = "none";
+        main.style.opacity = "0";
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                main.style.transition = "opacity 0.5s ease";
+                main.style.opacity = "1";
+            });
+        });
+    }
+});
+
+/* IR ARRIBA */
 const backToTop = document.getElementById("back-to-top");
 
 if (backToTop) {
@@ -80,6 +97,52 @@ if (backToTop) {
         });
     });
 }
+
+ /* FILTROS */
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const category = button.textContent.trim();
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        // Todas desaparecen
+        projectCards.forEach(card => {
+            card.style.opacity = "0";
+        });
+
+        // Después de desaparecer, mostramos solo las correspondientes
+        setTimeout(() => {
+            projectCards.forEach(card => {
+                const categories = card.dataset.category;
+                const shouldShow =
+                    category === "Todos" || categories.includes(category);
+
+                if (shouldShow) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Esperamos un frame para que el navegador aplique el nuevo layout
+            requestAnimationFrame(() => {
+                projectCards.forEach(card => {
+                    const categories = card.dataset.category;
+                    const shouldShow =
+                        category === "Todos" || categories.includes(category);
+
+                    if (shouldShow) {
+                        card.style.opacity = "1";
+                    }
+                });
+            });
+        }, 500);
+    });
+});
 
 /* LIGHBOX PARA IMG */
 const images = document.querySelectorAll(".project-gallery-image, .avisa-anim-image");
@@ -177,34 +240,3 @@ document.addEventListener("keydown", (event) => {
 });
 
 /* FORMULARIO DE CONTACTO */
-
-const contactForm = document.getElementById("contact-form");
-const formStatus = document.getElementById("form-status");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(contactForm);
-
-        try {
-            const response = await fetch(contactForm.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Accept": "application/json"
-                }
-            });
-
-            if (response.ok) {
-                contactForm.reset();
-                formStatus.textContent = "¡Mensaje enviado! Gracias por escribirme.";
-            } else {
-                formStatus.textContent = "No se pudo enviar el mensaje. Inténtalo nuevamente.";
-            }
-
-        } catch (error) {
-            formStatus.textContent = "No se pudo enviar el mensaje. Inténtalo nuevamente.";
-        }
-    });
-}
