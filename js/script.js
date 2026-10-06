@@ -141,8 +141,9 @@ filterButtons.forEach(button => {
         }, 500);
     });
 });
+
 /* LIGHBOX PARA IMG */
-const images = document.querySelectorAll(".project-gallery-image, .avisa-anim-image");
+const images = document.querySelectorAll(".project-gallery-image, .avisa-anim-image, .illustration-img");
 const lightbox = document.getElementById("image-lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
 const prevButton = document.getElementById("lightbox-prev");

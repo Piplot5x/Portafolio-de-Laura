@@ -136,6 +136,12 @@ h4 {
     font-weight: 300;
     color:#202F5C;
 }
+h5 {
+    font-family: 'Host Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color:#ffffff;
+}
 
 .logo {
     display: block;
@@ -703,6 +709,10 @@ strong {
 .project-card img {
     width: 100%;
     display: block;
+    transition: transform 0.4s ease;
+}
+.project-card:hover img {
+    transform: scale(1.07); 
 }
 .card-vertical img {
     width: 100%;
@@ -712,12 +722,15 @@ strong {
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 50px;
-    background-color: rgba(32, 47, 92, 0.5);
+    background-color: rgba(32, 47, 92, 0.6);
     opacity: 0;
     transition: opacity 0.3s ease;
+    gap: 18px;
+    z-index: 2;
 }
 .project-overlay-vertical {
     position: absolute;
@@ -742,12 +755,27 @@ strong {
     text-transform: uppercase;
     text-align: center;
 }
-.project-overlay-vertical h2 {
+.project-overlay h5 {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
     color: #ffffff;
     margin: 0;
-    text-transform: uppercase;
-    text-align: center;
 }
+.arrow-link {
+    width: 30px;
+    height: 23px;
+    display: block;
+    fill: none;
+    stroke: currentColor; 
+    stroke-width: 2.5px; 
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(90deg);
+    position: relative;
+    top: 1.2px;
+}
+
 
 /* ---------- SOBRE MÍ ---------- */
 .about {
@@ -859,6 +887,7 @@ strong {
     justify-content: center;
     gap: 30px;
     padding: 30px 50px;
+    margin-bottom: 50px;
 }
 .project-storyboards img {
     width: 45%;
@@ -935,6 +964,35 @@ strong {
     padding: 30px 450px;
     gap: 150px;
 }
+.personaje-section {
+    background-color: #ffffff;
+}
+.personaje-fila {
+    display: grid;
+    grid-template-columns: 2.3fr 1.1fr 1.8fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 50px 0px;
+    align-items: center;
+    background-color: #ffffff;
+}
+.personaje-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.personaje-item {
+    text-align: center;
+}
+.personaje-gallery-image {
+    width: 100%;
+    display: block;
+    border-radius: 0px;
+}
+.personaje-paleta {
+    width: 40%;
+}
 
 /* PROYECTOS ILUSTRACION */
 .illustration-item {
@@ -945,6 +1003,7 @@ strong {
 }
 .illustration-img {
     width: 100%;
+    cursor: pointer;
 }
 
 #image-lightbox {
