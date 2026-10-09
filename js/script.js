@@ -143,7 +143,7 @@ filterButtons.forEach(button => {
 });
 
 /* LIGHBOX PARA IMG */
-const images = document.querySelectorAll(".project-gallery-image, .avisa-anim-image, .illustration-img");
+const images = document.querySelectorAll(".project-gallery-image, .avisa-anim-image, .illustration-img, .illustration-gallery-image");
 const lightbox = document.getElementById("image-lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
 const prevButton = document.getElementById("lightbox-prev");
