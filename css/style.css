@@ -920,7 +920,6 @@ strong {
     border-radius: 0px;
     cursor: pointer;
     box-sizing: border-box;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.00);
 }
 .project-storyboards {
     display: flex;
@@ -986,6 +985,23 @@ strong {
     gap: 15px;
     align-items: center;
 }
+.project-fila-igpost {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+    align-items: center;
+}
+.project-gallery-image.impro-mockup {
+    width: auto;
+    height: 500px;
+    display: block;
+    border-radius: 0px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
 
 .avisa-proceso {
     display: grid;
