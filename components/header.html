@@ -1,8 +1,6 @@
 <header>
     <!-- PRUEBA HEADER -->
-        <div class="header-inner
-        
-             header-layout-nav-right">
+        <div class="header-inner header-layout-nav-right">
             <!-- Title and nav wrapper -->
              <div class="header-title-nav-wrapper">
                 <!-- Title -->
@@ -12,7 +10,7 @@
                     </div>
                  </div>
                 <!-- Nav -->
-                <div class="header-nav">
+                <div class="header-nav" id="headerNav">
                         <nav class="header-nav-list">
                             <div class="header-nav-item">
                                 <a href="/">Inicio</a>
@@ -42,12 +40,20 @@
                         </nav>
                 </div> 
              </div>
+
+            <!-- Actions -->
              <div class="action-wrapper">
-             <!-- Actions -->
                  <div class="header-actions">
                     <a href="mailto:a20204007@pucp.edu.pe"> <img src="/assets/email.svg" alt="Email" style="width: 25px; height: auto">
                     </a>
                 </div>
              </div>
+
+             <!-- Botón Hamburguesa (oculto en desktop) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            </button>
         </div>
 </header>

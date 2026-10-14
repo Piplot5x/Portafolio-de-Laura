@@ -155,8 +155,33 @@ h5 {
   h1 { font-size: 45px; }
   h2 { font-size: 32px; } 
   h3 { font-size: 16px; }
+  h4 { font-size: 12px; }
   h5 { font-size: 17px; }
   p  { font-size: 16px; }
+}
+@media (max-width: 1024px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 28px; } 
+  h3 { font-size: 15px; }
+  h4 { font-size: 12px; }
+  h5 { font-size: 16px; }
+  p  { font-size: 15px; }  
+}
+@media (max-width: 800px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; } 
+  h3 { font-size: 15px; }
+  h4 { font-size: 11px; }
+  h5 { font-size: 15px; }
+  p  { font-size: 15px; }  
+}
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 21px; } 
+  h3 { font-size: 14px; }
+  h4 { font-size: 10px; }
+  h5 { font-size: 14px; }
+  p  { font-size: 14px; } 
 }
 
 /* ---------- HEADER ---------- */
@@ -177,8 +202,6 @@ header {
     align-items: center;
     width: 100%;
     height: 118px;
-    padding-top: 43px;
-    padding-bottom: 43px;
     background-color: #009598;
 }
 .header-inner {
@@ -195,8 +218,7 @@ header {
     flex: 1;
     align-items: center;
     position: relative;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding: 0 200px;
 }
 .action-wrapper {
     position: absolute;
@@ -219,7 +241,6 @@ header {
     margin-left: auto;
     padding-left: 1.4vw;
 }
-
 .header-nav-list {
     display: inline-flex;
     flex-wrap: nowrap;
@@ -300,21 +321,42 @@ header {
     align-items: center;
     justify-content: center;
 }
+.header-actions a img {
+    width: 25px;
+    height: auto;
+}
 nav {
     white-space: nowrap;
+}
+/* Botón Hamburguesa */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+.nav-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 1440px) {
   header {
     height: 90px;
-    padding-top: 20px;
-    padding-bottom: 20px;
   }
   .header-title-nav-wrapper {
-    padding-left: 150px;
-    padding-right: 150px;
+    padding: 0 150px;
   }
   .logo {
-    font-size: 40px;
+    font-size: 46px;
   }
   .header-nav-item {
     font-size: 18px;
@@ -323,6 +365,10 @@ nav {
   .action-wrapper {
     right: 40px;
   }
+  .header-actions a img {
+    width: 23px;
+    height: auto;
+    }
   .hover-circle--inicio {
     width: 75px;
   }
@@ -339,7 +385,163 @@ nav {
     width: 108px;
   }
 }
+@media (max-width: 1024px) {
+  header {
+    height: 80px;
+  }
+  .header-title-nav-wrapper {
+    padding: 0 80px;
+  }
+  .logo {
+    font-size: 38px;
+  }
+  .header-nav-item {
+    font-size: 15px;
+    margin-left: 30px;
+  }
+  .action-wrapper {
+    right: 25px;
+  }
+  .header-actions a img {
+    width: 18px;
+    height: auto;
+    }
+  .hover-circle path { 
+    stroke-width: 1.8; 
+  }
+  .hover-circle--inicio {
+    width: 65px;
+  }
+  .hover-circle--animacion {
+    width: 97px;
+  }
+  .hover-circle--ilustracion {
+    width: 97px;
+  }
+  .hover-circle--diseno {
+    width: 75px;
+  }
+  .hover-circle--about {
+    width: 88px;
+  }  
+}
+@media (max-width: 800px) {
+  header {
+    height: 75px;
+    padding: 0 24px;
+    position: relative; /* Clave para anclar el panel desplegable */
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 
+  /* 2. LIBERAR EL CONTENEDOR DEL LOGO */
+  .header-title-nav-wrapper {
+    padding: 0;
+    flex: initial;
+  }
+  .logo {
+    font-size: 32px;
+    transform: none; /*creo k apagar para k se centre*/
+    position: relative;
+    z-index: 10001; /* Para que tu logo siga viéndose */
+    transition: color 0.3s ease;
+  }
+
+  /* 3. REUBICAR EL ICONO DE EMAIL JUNTO A LA HAMBURGUESA */
+  .action-wrapper {
+    position: static;
+    margin-left: auto;
+    margin-right: 20px;
+    z-index: 10001;
+  }
+  .header-actions a img {
+    width: 20px;
+    height: auto;
+  }
+  /* 4. VISIBILIDAD DEL BOTÓN HAMBURGUESA */
+  .nav-toggle {
+    display: flex;
+    pointer-events: auto;
+    z-index: 99999;
+  }
+
+  /* 5. CONVERTIR LA NAVEGACIÓN EN MENÚ DESPLEGABLE */
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* Toda la pantalla blanca */
+    z-index: 10000;
+    /* Centrado de los enlaces */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Estado inicial oculto con transición suave */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 0;
+  }
+  .header-layout-nav-right .header-nav {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  /* 6. LISTA DE ENLACES EN FILA VERTICAL */
+  .header-nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px; /* Espacio uniforme entre botones */
+    padding: 0;
+    margin: 0;
+  }
+  .header-nav-item {
+    margin: 0;
+    text-align: center;
+    display: block;
+  }
+  .header-nav-item a {
+    color: #202F5C;
+    font-size: 26px; /* Más grandes para pantallas táctiles */
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .nav-toggle.is-open .bar {
+    background-color: #202F5C;
+  }
+  .header-inner:has(.is-open) .logo {
+    color: #202F5C;
+  }
+
+  /* 7. ESTADO ACTIVO (CUANDO SE HACE CLIC EN LA HAMBURGUESA) */
+  .header-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 8. ANIMACIÓN DE LAS 3 BARRAS A FORMA DE 'X' */
+  .nav-toggle.is-open .bar:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+  }
+  .nav-toggle.is-open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.is-open .bar:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+  } 
+  .hover-circle {
+    display: none;
+  }
+}
 /* ---------- HERO ---------- */
 .hero {
     padding: 80px 285px;

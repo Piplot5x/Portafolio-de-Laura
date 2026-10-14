@@ -1,10 +1,40 @@
 
 fetch("../../components/header.html")
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        document.querySelector("#header").innerHTML = data;
-    });
+  .then(response => response.text())
+  .then(data => {
+    const headerContainer = document.querySelector("#header");
+    if (headerContainer) {
+      headerContainer.innerHTML = data;
+      initMobileMenu();
+    } else {
+      console.error("ERROR: No se encontró ningún elemento con id='header' en el HTML.");
+    }
+  });
+
+function initMobileMenu() {
+  const navToggle = document.getElementById('navToggle');
+  const headerNav = document.getElementById('headerNav');
+
+  console.log("Estado de elementos:", { navToggle, headerNav });
+
+  if (!navToggle) {
+    console.error("ERROR: No se encontró el botón #navToggle en header.html");
+    return;
+  }
+  if (!headerNav) {
+    console.error("ERROR: No se encontró el contenedor #headerNav en header.html");
+    return;
+  }
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    console.log("¡Clic detectado en la hamburguesa!");
+    
+    const isOpen = headerNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+}
 
 fetch("../../components/footer.html")
     .then(response => response.text())
