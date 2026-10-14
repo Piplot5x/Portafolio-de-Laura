@@ -510,16 +510,16 @@ nav {
     display: block;
   }
   .header-nav-item a {
-    color: #202F5C;
+    color: #009598;
     font-size: 26px; /* Más grandes para pantallas táctiles */
     font-weight: 600;
     text-decoration: none;
   }
   .nav-toggle.is-open .bar {
-    background-color: #202F5C;
+    background-color: #009598;
   }
   .header-inner:has(.is-open) .logo {
-    color: #202F5C;
+    color: #009598;
   }
 
   /* 7. ESTADO ACTIVO (CUANDO SE HACE CLIC EN LA HAMBURGUESA) */
