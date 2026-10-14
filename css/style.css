@@ -160,12 +160,15 @@ h5 {
   p  { font-size: 16px; }
 }
 @media (max-width: 1024px) {
-  h1 { font-size: 40px; }
+  h1 { font-size: 38px; }
   h2 { font-size: 28px; } 
   h3 { font-size: 15px; }
   h4 { font-size: 12px; }
   h5 { font-size: 16px; }
-  p  { font-size: 15px; }  
+  p  { font-size: 14px; }  
+  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.1rem;
+  }
 }
 @media (max-width: 800px) {
   h1 { font-size: 32px; }
@@ -427,9 +430,9 @@ nav {
 }
 @media (max-width: 800px) {
   header {
-    height: 75px;
+    height: 90px;
     padding: 0 24px;
-    position: relative; /* Clave para anclar el panel desplegable */
+    position: relative;
   }
   .header-inner {
     display: flex;
@@ -437,53 +440,44 @@ nav {
     align-items: center;
     width: 100%;
   }
-
-  /* 2. LIBERAR EL CONTENEDOR DEL LOGO */
   .header-title-nav-wrapper {
     padding: 0;
     flex: initial;
   }
   .logo {
-    font-size: 32px;
-    transform: none; /*creo k apagar para k se centre*/
+    font-size: 40px;
     position: relative;
-    z-index: 10001; /* Para que tu logo siga viéndose */
+    z-index: 10001;
     transition: color 0.3s ease;
   }
-
-  /* 3. REUBICAR EL ICONO DE EMAIL JUNTO A LA HAMBURGUESA */
   .action-wrapper {
     position: static;
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 25px;
     z-index: 10001;
   }
   .header-actions a img {
-    width: 20px;
+    width: 30px;
     height: auto;
   }
-  /* 4. VISIBILIDAD DEL BOTÓN HAMBURGUESA */
   .nav-toggle {
     display: flex;
     pointer-events: auto;
     z-index: 99999;
   }
-
-  /* 5. CONVERTIR LA NAVEGACIÓN EN MENÚ DESPLEGABLE */
+  
   .header-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #ffffff; /* Toda la pantalla blanca */
+    background-color: #ffffff;
     z-index: 10000;
-    /* Centrado de los enlaces */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Estado inicial oculto con transición suave */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -493,14 +487,12 @@ nav {
     margin-left: 0;
     padding-left: 0;
   }
-
-  /* 6. LISTA DE ENLACES EN FILA VERTICAL */
   .header-nav-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 32px; /* Espacio uniforme entre botones */
+    gap: 32px;
     padding: 0;
     margin: 0;
   }
@@ -511,8 +503,8 @@ nav {
   }
   .header-nav-item a {
     color: #009598;
-    font-size: 26px; /* Más grandes para pantallas táctiles */
-    font-weight: 600;
+    font-size: 50px;
+    font-weight: 500;
     text-decoration: none;
   }
   .nav-toggle.is-open .bar {
@@ -521,14 +513,11 @@ nav {
   .header-inner:has(.is-open) .logo {
     color: #009598;
   }
-
-  /* 7. ESTADO ACTIVO (CUANDO SE HACE CLIC EN LA HAMBURGUESA) */
   .header-nav.is-open {
     opacity: 1;
     visibility: visible;
   }
 
-  /* 8. ANIMACIÓN DE LAS 3 BARRAS A FORMA DE 'X' */
   .nav-toggle.is-open .bar:nth-child(1) {
     transform: translateY(9.5px) rotate(45deg);
   }
@@ -542,6 +531,7 @@ nav {
     display: none;
   }
 }
+
 /* ---------- HERO ---------- */
 .hero {
     padding: 80px 285px;
@@ -582,6 +572,18 @@ nav {
   .hero-text-text p {
     font-size: 20px;
   }
+}
+@media (max-width: 1024px) {
+  .hero-text-text {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .hero-text-text h2 {
+    font-size: 30px;
+  }
+  .hero-text-text p {
+    font-size: 15px;
+  } 
 }
 
 strong {
@@ -694,6 +696,26 @@ strong {
   .hero-button-secondary:hover {
     font-size: 21px;
   }
+}
+@media (max-width: 1024px) {
+  .hero {
+    padding: 60px 150px;
+    }
+  .hero-content {
+    gap: 45px;
+  }
+  .hero-buttons {
+    gap: 15px;
+  }
+  .hero-button {
+    width: 116px;
+    height: 55px; 
+    font-size: 15px;
+  }
+  .hero-button-primary:hover,
+  .hero-button-secondary:hover {
+    font-size: 16px;
+  }  
 }
 
 /* ---------- TRABAJOS DESTACADOS ---------- */
@@ -831,6 +853,37 @@ strong {
     padding-right: 100px;
     }
 }
+@media (max-width: 1024px) {
+    .destacados-item {
+    max-height: 700px;
+    }
+    .carousel p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    }
+    .carousel h2 {
+    font-size: 25px;
+    margin-bottom: 0.3rem;
+    }
+    .etiqueta {
+    padding: 0px 3px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    }
+    .panel-button {
+    width: 87px;
+    height: 40px;
+    font-size: 15px;
+    }
+    .panel-button:hover {
+    font-size: 21px;
+    }
+    .panel-info {
+    padding-left: 10px;
+    padding-right: 90px;
+    }
+}
 
 /* ---------- index CONTACT FORM ---------- */
 .index-contact {
@@ -939,6 +992,37 @@ strong {
     font-size: 15px; 
     }
 }
+@media (max-width: 1024px) {
+    .index-contact-content {
+    gap: 40px;
+    }
+    .index-contact {
+    padding: 60px 150px;
+    }
+    .primero {
+    font-size: 25px;
+    }
+    .segundo {
+    font-size: 15px;
+    }
+    .index-contact-text {
+    min-width: 330px;
+    max-width: none;
+    }
+    .form-control {
+    font-size: 0.7rem;
+    }
+    .contact-forms {
+    padding: 25px;
+    }
+    .contact-forms .form-label {
+    font-size: 12px;
+    margin-bottom: 2px;
+    }
+    .contact-forms .btn {
+    font-size: 15px; 
+    }
+}
 
 /* ---------- FOOTER ---------- */
 .footer-content {
@@ -963,6 +1047,14 @@ strong {
     }
     .footer-content a {
     font-size: 18px;
+    }
+}
+@media (max-width: 1024px) {
+    .footer-content {
+    margin-top: 10px;
+    }
+    .footer-content a {
+    font-size: 15px;
     }
 }
 
@@ -1017,8 +1109,24 @@ strong {
     text-align: center;
     font-size: clamp(1.35rem, 2.2vw, 2.5rem);
 }
+@media (max-width: 1440px) {
+    .rubros {
+        padding: 125px 30px;
+    }
+    .areas-grid {
+        gap: 25px;
+    }
+}
+@media (max-width: 1024px) {
+    .rubros {
+        padding: 130px 20px;
+    }
+    .areas-grid {
+        gap: 18px;
+    }
+}
 
-/* ---------- ANIMACIÓN PÁGINA ---------- */
+/* ---------- FILTROS / PROYECTOS GALERÍA ---------- */
 .project-filters {
     display: flex;
     justify-content: center;
@@ -1044,8 +1152,6 @@ strong {
 .filter-button.active::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
     left: -5px;
     right: -5px;
     bottom: 1px;
@@ -1060,7 +1166,22 @@ strong {
         margin: 0 auto 30px;
         padding: 10px 35px;
     }
-    
+    .filter-button.active::after {
+        height: 2.6px;
+    }
+}
+@media (max-width: 1024px) {
+    .filter-button {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .project-filters {
+        margin: 0 auto 25px;
+        padding: 8px 30px;
+    }
+    .filter-button.active::after {
+        height: 2px;
+    }
 }
 
 .projects {
@@ -1076,7 +1197,6 @@ strong {
 .projects-grid-vertical {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
     grid-column-gap: 40px;
     grid-row-gap: 40px;
 }
@@ -1137,8 +1257,7 @@ strong {
     text-align: center;
     line-height: 1.15;
     padding: 0 0.8rem;
-    /* Parte de ~22px en pantallas chicas y llega hasta 40px en pantallas grandes */
-    font-size: clamp(1.35rem, 2.2vw, 2.5rem);
+    font-size: 40px;
 }
 .project-overlay h5 {
     display: inline-flex;
@@ -1147,8 +1266,7 @@ strong {
     color: #ffffff;
     margin: 0;
     line-height: 1;
-    /* Parte de ~14px y llega hasta tus 20px originales */
-    font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+    font-size: 20px;
 }
 .arrow-link {
     width: 30px;
@@ -1167,6 +1285,40 @@ strong {
     width: 1em;
     height: 1em;
     flex-shrink: 0;
+}
+@media (max-width: 1440px) {
+    .project-overlay {
+        padding: 35px;
+        gap: 16px;
+    }
+    .project-overlay h2 {
+        font-size: 36px;
+    }
+    .project-overlay h5 {
+        font-size: 16px;
+        gap: 4px;
+    }
+    .projects-grid-vertical {
+        grid-column-gap: 33px;
+        grid-row-gap: 35px;
+    }
+}
+@media (max-width: 1024px) {
+    .project-overlay {
+        padding: 25px;
+        gap: 13px;
+    }
+    .project-overlay h2 {
+        font-size: 24px;
+    }
+    .project-overlay h5 {
+        font-size: 13px;
+        gap: 4px;
+    }
+    .projects-grid-vertical {
+        grid-column-gap: 25px;
+        grid-row-gap: 25px;
+    }
 }
 
 /* ---------- SOBRE MÍ ---------- */
@@ -1200,7 +1352,7 @@ strong {
     display: block;
 }
 
-/* ---------- PROYECTOS HEADER ---------- */
+/* ---------- PROYECTOS HEADER HORIZONTAL ---------- */
 .project-header {
     position: relative;
     min-height: 420px;
@@ -1248,6 +1400,23 @@ strong {
         font-size: 13px;
     }
 }
+@media (max-width: 1024px) {
+    .project-header {
+        padding: 45px 30px;
+        min-height: 300px;
+    }
+    .project-header > img {
+        top: 20px;
+        right: 20px;
+        max-width: 70px;
+    }
+    .project-tag {
+        font-size: 11px;
+        padding: 0 2px;
+        margin-bottom: 15px;
+    }
+}
+
 /* ---------- PROYECTOS HEADER VERTICAL ---------- */
 .project-header-vertical {
     position: relative;
@@ -1294,6 +1463,15 @@ strong {
         max-height: 500px;
     }
 }
+@media (max-width: 1024px) {
+    .project-header-vertical {
+        gap: 0px;
+        padding: 30px 120px;
+    }
+    .illustration-img {
+        max-height: 380px;
+    }
+}
 
 /* VIDEO PROYECTOS */
 .video-container {
@@ -1316,8 +1494,13 @@ strong {
     margin: 80px auto;
     }
 }
+@media (max-width: 1024px) {
+    .video-container {
+    margin: 60px auto;
+    }
+}
 
-/* GALERIA PROYECTOS */
+/* GALERIA storyboard PROYECTOS */
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1360,7 +1543,15 @@ strong {
 .storyboard-item .project-gallery-image {
     width: 100%;
 }
-
+@media (max-width: 1024px) {
+    .project-gallery {
+        padding: 15px 90px 60px;
+    }
+    .project-storyboards {
+        gap: 20px;
+        padding: 20px 30px;
+    }
+}
 
 .project-fila {
     display: grid;
@@ -1381,21 +1572,30 @@ strong {
 .project-item h3 {
     margin-bottom: 15px;
 }
+
 .project-fila-brochure {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 30px;
-    max-width: 1800px;
+    width: 100%;
+    max-width: 1820px;
     margin: 50px auto;
+    padding: 0 24px;
+    box-sizing: border-box;
     align-items: center;
+}
+.project-fila-brochure img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 .project-fila-brochure-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    max-width: 1800px;
-    margin: 50px auto;
-    padding: 0 20px;
+    max-width: 1920px;
+    margin: 50px 50px;
     box-sizing: border-box;
 }
 .project-fila-brochure-2 > div {
@@ -1419,7 +1619,43 @@ strong {
     cursor: pointer;
     box-sizing: border-box;
 }
-
+@media (max-width: 1440px) {
+   .project-fila-brochure {
+    gap: 20px;
+    padding: 0 30px;
+   } 
+}
+@media (max-width: 1024px) {
+   .project-fila-brochure {
+    gap: 15px;
+    padding: 0 20px;
+    margin: 40px auto;
+   } 
+   .project-fila-brochure-2 {
+    gap: 15px;
+    margin: 30px 30px;
+   }
+   .project-fila-igpost {
+    gap: 20px;
+    padding: 30px 30px; 
+   }
+}
+@media (max-width: 800px) {
+    .project-fila-brochure {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin: 35px auto;
+        padding: 0 20px;
+    }
+}
+@media (max-width: 480px) {
+    .project-fila-brochure {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin: 25px auto;
+        padding: 0 16px;
+    }
+}
 
 .avisa-proceso {
     display: grid;
@@ -1503,6 +1739,24 @@ strong {
         padding: 35px 0px;
     }
 }
+@media (max-width: 1024px) {
+    .project-video {
+        margin: 40px auto;
+    }
+    .avisa-proceso {
+        gap: 10px;
+        padding: 0px 50px;
+        margin-bottom: 55px;
+    }
+    .project-fila {
+        max-width: 850px;
+        margin: 25px auto;
+    }
+    .personaje-fila {
+        max-width: 750px;
+        padding: 20px 0px;
+    }
+}
 
 /* PROYECTOS ILUSTRACION */
 .project-illustration {
@@ -1534,7 +1788,13 @@ strong {
 .illustration-column-item h3 {
     margin: 15px 0 15px;
 }
-
+@media (max-width: 1024px) {
+    .project-illustration{
+        padding: 30px 30px;
+        gap: 20px;
+    }
+    
+}
 
 /* LIGHTBOX */
 #image-lightbox {
@@ -1627,5 +1887,11 @@ strong {
     #project-back {
         top: 105px;
         left: 10px;
+    }
+}
+@media (max-width: 1024px) {
+    #project-back {
+        top: 87px;
+        left: 5px;
     }
 }
