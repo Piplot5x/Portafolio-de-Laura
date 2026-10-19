@@ -1774,12 +1774,14 @@ strong {
 }
 .about-image {
     margin-left: auto;
+    max-width: 570px;
 }
 .about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    
 }
 
 /* ---------- PROYECTOS HEADER HORIZONTAL ---------- */
