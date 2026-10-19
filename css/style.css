@@ -1771,7 +1771,9 @@ strong {
     color:#202F5C;
     line-height: 1.4;
     margin-bottom: 35px;
-    gap: 30px;
+}
+.about-text-text p {
+    margin-bottom: 30px;
 }
 .about-image {
     margin-left: auto;
