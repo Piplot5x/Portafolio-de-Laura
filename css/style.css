@@ -202,13 +202,15 @@ h5 {
 /* ---------- HEADER ---------- */
 .logo {
     display: block;
-    font-family: 'Gluten', cursive;
-    font-size: 55px;
+    font-family: 'Sour Gummy', sans-serif;
+    font-size: 60px;
     color: #ffffff;
     text-decoration: none;
-    letter-spacing: 3%;
+    text-transform: uppercase;
+    letter-spacing: 4.5%;
+    font-weight: 600;
     white-space: nowrap;
-    transform: translateY(5px);
+    transform: translateY(1px);
 }
 header {
     display: flex;
@@ -597,10 +599,12 @@ nav {
 .hero-text-text h2 {
     color:#009598;
     font-size: 45px;
+    font-family: 'Sour Gummy', sans-serif;
+    font-weight: 500;
     margin: 0;
 }
 .hero-text-text p {
-    font-size: 25px;
+    font-size: 22px;
 }
 @media (max-width: 1440px) {
   .hero-text-text {
@@ -677,10 +681,10 @@ strong {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    width: 168px;
     height: 80px;
     font-family: 'Host Grotesk', sans-serif;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.1s ease;
@@ -718,7 +722,7 @@ strong {
 }
 .hero-button-primary:hover {
     color: #ffffff;
-    font-size: 26px;
+    font-size: 24px;
 }
 .hero-button-primary:hover .hero-button-shape {
     fill:#EBCD6C;
@@ -726,7 +730,7 @@ strong {
 }
 .hero-button-secondary:hover {
     color: #EBCD6C;
-    font-size: 26px;
+    font-size: 24px;
 }
 .hero-button-secondary:hover .hero-button-shape {
     fill: transparent;
@@ -851,31 +855,31 @@ strong {
 .etiqueta {
     display: inline-block;
     padding: 0px 5px;
-    border-radius: 5px;
+    border-radius: 4px;
     margin-right: auto;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     font-family: 'Host Grotesk', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color:#ffffff;
     background-color: #009598;
 }
 .carousel p {
     font-family: 'Host Grotesk', sans-serif;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 400;
     color:#202F5C;
-    margin-bottom: 30px;
+    margin-bottom: 23px;
 }
 .panel-button {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 160px;
-    height: 70px;
+    width: 130px;
+    height: 62px;
     font-family: 'Host Grotesk', sans-serif;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 600;
     text-decoration: none;
     color: #ffffff;
@@ -897,7 +901,7 @@ strong {
     transition: fill 0.2s ease;
 }
 .panel-button:hover {
-    font-size: 26px;
+    font-size: 24px;
 }
 .panel-button:hover .panel-button-shape {
     fill:#EBCD6C;
@@ -907,6 +911,7 @@ strong {
 }
 .destacados-img {
     width: 58%;
+    overflow: hidden;
 }
 .destacados-img img {
     width: 100%;
@@ -1407,6 +1412,9 @@ strong {
 .areas-card img {
     width: 100%;
     display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
 }
 .areas-overlay {
     position: absolute;
